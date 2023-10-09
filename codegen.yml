@@ -1,0 +1,21 @@
+overwrite: true
+schema:
+  - ${NEXT_PUBLIC_API_ENDPOINT}:
+      # headers:
+      #   authorization: ${API_TOKEN}
+documents: "graphql/**/*.graphql"
+generates:
+  graphql/generated.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-react-apollo"
+      - "fragment-matcher"
+    config:
+      onlyEnums: true
+      withComponent: true
+  types/generated.d.ts:
+    plugins:
+      - "typescript":
+      - "typescript-operations":
+    config:
+      noExport: true
