@@ -1,8 +1,8 @@
 overwrite: true
 schema:
   - ${NEXT_PUBLIC_API_ENDPOINT}
-    # headers:
-    #   authorization: ${API_TOKEN}
+    headers:
+      authorization: "realnextjsworld"
 documents: "src/lib/graphql/**/*.graphql"
 generates:
   src/lib/graphql/generated.tsx:

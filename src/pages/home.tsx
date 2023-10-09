@@ -1,5 +1,5 @@
+import { useFilmsQuery } from "@/lib/graphql/generated";
 import { useMemo } from "react";
-import { useFilmsQuery } from "../../graphql/generated";
 
 function HomePage() {
   const { data, loading } = useFilmsQuery({
