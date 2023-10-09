@@ -6,13 +6,12 @@ import {
 } from "@apollo/client";
 import { useMemo } from "react";
 
-let uri = "/api/graphql";
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
 const createApolloClient = () => {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
-    link: new HttpLink({ uri }),
+    link: new HttpLink({ uri: process.env.NEXT_PUBLIC_API_ENDPOINT }),
     cache: new InMemoryCache({}),
   });
 };
