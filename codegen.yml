@@ -3,9 +3,9 @@ schema:
   - ${NEXT_PUBLIC_API_ENDPOINT}
     # headers:
     #   authorization: ${API_TOKEN}
-documents: "src/graphql/**/*.graphql"
+documents: "src/lib/graphql/**/*.graphql"
 generates:
-  src/graphql/generated.tsx:
+  src/lib/graphql/generated.tsx:
     plugins:
       - "typescript"
       - "typescript-react-apollo"
@@ -13,7 +13,7 @@ generates:
     config:
       onlyEnums: true
       withComponent: true
-  src/types/generated.d.ts:
+  src/lib/types/generated.d.ts:
     plugins:
       - "typescript":
       - "typescript-operations":
