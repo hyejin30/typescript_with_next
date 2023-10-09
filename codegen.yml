@@ -1,11 +1,11 @@
 overwrite: true
 schema:
-  - ${NEXT_PUBLIC_API_ENDPOINT}:
-      # headers:
-      #   authorization: ${API_TOKEN}
-documents: "graphql/**/*.graphql"
+  - ${NEXT_PUBLIC_API_ENDPOINT}
+    # headers:
+    #   authorization: ${API_TOKEN}
+documents: "src/graphql/**/*.graphql"
 generates:
-  graphql/generated.tsx:
+  src/graphql/generated.tsx:
     plugins:
       - "typescript"
       - "typescript-react-apollo"
@@ -13,7 +13,7 @@ generates:
     config:
       onlyEnums: true
       withComponent: true
-  types/generated.d.ts:
+  src/types/generated.d.ts:
     plugins:
       - "typescript":
       - "typescript-operations":
