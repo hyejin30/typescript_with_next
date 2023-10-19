@@ -2,7 +2,11 @@ overwrite: true
 schema:
   - ${NEXT_PUBLIC_API_ENDPOINT}:
       headers:
+<<<<<<< Updated upstream
       Authorization: ${API_TOKEN}
+=======
+      Authorization: "realnextjsworld"
+>>>>>>> Stashed changes
 documents: "src/lib/graphql/**/*.graphql"
 generates:
   src/lib/graphql/generated.tsx:

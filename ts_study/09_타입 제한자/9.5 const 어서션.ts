@@ -6,6 +6,8 @@
 - 객체 : 읽기 전용 속성
 */
 
+import { describe } from "node:test";
+
 // ? 예제 : 배열 -> 읽기 전용 튜플
 
 // (number | string)[]
@@ -49,4 +51,33 @@ tellJoke(wideJoke); // style : one-liner | story
 
 /*
  * 9.5.2 읽기 전용 객체
- */
+- 리터럴 값은 원시 타입으로 확장된다
+  - 배열 -> array
+  - 리터럴 문자열 -> string  
+- const 어서션 사용 시, 구체적으로 전환된다
+*/
+
+const describe = (preference: "maybe" | "no" | "yes") => {
+  switch (preference) {
+    case "maybe":
+      return "I suppose";
+    case "no":
+      return "No thanks";
+    case "yes":
+      return "Yes please";
+  }
+};
+
+const mutable = {
+  movie: "maybe", // string
+  standup: "yes", // string
+};
+
+describe(mutable.movie); // movie: string
+
+const readonly = {
+  movie: "maybe", // 'maybe'
+  standup: "yes", // 'yes'
+} as const;
+
+describe(readonly.movie); // movie: 'maybe'
