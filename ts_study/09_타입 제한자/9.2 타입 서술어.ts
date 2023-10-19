@@ -63,7 +63,9 @@ const workWithComedian = (value: Comedian) => {
 // * 주의사항
 // 타입 검사 이외의 것은 지양하자 (ex. 7자 이상)
 
-// ! text?.length가 왜 never로 추론되는지 모르겠습니다
+// ? text?.length가 왜 never로 추론되는지?
+// 옵셔널 체이닝 : string | undefined는 사용 가능하지만 string 값에 사용하면 never 형식으로 간주되는 타입 에러 발생
+
 const isLongString = (input: string | undefined): input is string => {
   return !!(input && input.length >= 7);
 };
