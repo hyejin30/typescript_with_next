@@ -12,8 +12,19 @@ class AnyStudent implements User {
 }
 
 // 초기값 할당
-class Student implements User {
+class InitialStudent implements User {
   name = "";
+  study(hours: number) {
+    console.log("study: ", hours);
+  }
+}
+
+// public을 사용해서 타입 추론
+class Student implements User {
+  constructor(public name: string) {
+    this.name = name;
+  }
+
   study(hours: number) {
     console.log("study: ", hours);
   }
