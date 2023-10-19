@@ -1,8 +1,6 @@
 /*
 * 제네릭의 황금률
 - 정의
-타입 정보가 들어올 때만 타입 정보가 나갈 수 있다.
-제네릭 함수에서 입력된 타입을 기반으로 출력 타입을 결정한다
 
 - 타입 정보가 들어온 사례 
 map : 배열 요소 타입 -> 새 배열의 요소 타입 결정
@@ -77,6 +75,32 @@ console.log(maybeValue.toUpperCase());
 // string
 const knownValue = counts.get("Lucy")!;
 console.log(knownValue.toUpperCase());
+
+/* 
+* ! non-null 대안
+- type guard
+- nullish coalescing operator 
+- Error 발생
+*/
+
+// type guard
+const toUpperCaseWithGuard = (givenStr: string | null) => {
+  if (givenStr === null) return null;
+  return givenStr.toUpperCase();
+};
+
+// nullish coalescing operator(??)
+const toUpperCaseWithOperator = (givenStr: string | null) => {
+  return givenStr?.toUpperCase() ?? givenStr;
+};
+
+// Error 발생
+const toUpperCaseWithError = (givenStr: string | null) => {
+  if (givenStr === null) {
+    throw new Error("unexpected err: givenStr not present");
+  }
+  return givenStr.toUpperCase();
+};
 
 /*
 * 9.4.3 타입 어서션 주의사항
